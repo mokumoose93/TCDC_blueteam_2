@@ -50,9 +50,6 @@ cat > "$AUDIT_RULES" << 'EOF'
 # a cyber defense competition
 # ==============================================
 
-# Remove all existing rules first
--D
-
 # Buffer size — increase for busy systems
 -b 8192
 
