@@ -20,6 +20,7 @@ case "$BAD_SVC" in
     apache2) apache2ctl configtest ;;
     nginx)   nginx -t ;;
     sshd)    sshd -t ;;
+    vsftpd)  vsftpd /etc/vsftpd.conf ;;
 esac
 
 # 3. If config is OK, restart. If not, skip to Eradicate.
@@ -46,6 +47,7 @@ case "$BAD_SVC" in
     apache2) apache2ctl configtest ;;
     nginx)   nginx -t ;;
     sshd)    sshd -t ;;
+    vsftpd)  vsftpd /etc/vsftpd.conf ;;
 esac
 systemctl restart $BAD_SVC
 ```

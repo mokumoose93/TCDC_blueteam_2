@@ -26,9 +26,9 @@ echo "parent_pid=$PARENT" >> /root/tcdc_evidence_$(date +%s)_pid_$BAD_PID.txt
 sudo kill -9 $BAD_PID
 sudo kill -9 $PARENT 2>/dev/null
 
-# 3. Block the remote IP — SINGLE IP ONLY (never a broad outbound deny — TCDC rule)
+# 3. Block the remote IP on OUTPUT only — SINGLE IP ONLY
+#    Inbound source IP attribution is unreliable because ingress is NATed.
 sudo iptables -A OUTPUT -d $BAD_IP -j DROP
-sudo iptables -A INPUT  -s $BAD_IP -j DROP
 
 # 4. Verify the shell is gone
 ss -tp state established | grep $BAD_IP
@@ -79,7 +79,6 @@ ss -tp state established | grep $BAD_IP
 
 # iptables rule in place
 sudo iptables -L OUTPUT -n | grep $BAD_IP
-sudo iptables -L INPUT -n  | grep $BAD_IP
 
 # OUTPUT policy is still ACCEPT (TCDC rule — critical)
 sudo iptables -L OUTPUT -n | head -1

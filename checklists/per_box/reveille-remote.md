@@ -1,4 +1,4 @@
-# reveille-remote (10.66.X.15) — SSH (scored)
+# reveille-remote (10.66.X.14) — SSH (scored)
 
 **Scored service:** SSH on port 22 — the authentication path itself is scored.
 **Tick:** 30s. Every tick down = lost points.

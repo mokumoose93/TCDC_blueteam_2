@@ -2,6 +2,9 @@
 
 Short, scoped files for the 3-person Blue Team 2 fielding a 5-box TCDC competition. This index has two tables: (1) which files each role keeps open, and (2) which playbook matches what you just saw.
 
+Assume compromise at kickoff: red team already knows the VM baselines and may have persistence/config drift in place before start.
+Treat source IP as low-confidence for inbound attribution: inbound traffic is NATed to appear from one source IP.
+
 For strategic guidance during injects or unusual situations, see the longer reference at [`TCDC_master_checklist.md`](./TCDC_master_checklist.md).
 
 ---
@@ -10,9 +13,9 @@ For strategic guidance during injects or unusual situations, see the longer refe
 
 | Role | Box(es) | Files to keep open |
 |---|---|---|
-| Web person     | centurytree (10.66.X.11), bonfire (10.66.X.12) | [`per_box/centurytree.md`](./per_box/centurytree.md), [`per_box/bonfire.md`](./per_box/bonfire.md) |
-| Data person    | aggiedrop (10.66.X.13), excel (10.66.X.14)     | [`per_box/aggiedrop.md`](./per_box/aggiedrop.md), [`per_box/excel.md`](./per_box/excel.md) |
-| SSH/IAM person | reveille-remote (10.66.X.15)                    | [`per_box/reveille-remote.md`](./per_box/reveille-remote.md) |
+| Web person     | centurytree (10.66.X.11), bonfire (10.66.X.13) | [`per_box/centurytree.md`](./per_box/centurytree.md), [`per_box/bonfire.md`](./per_box/bonfire.md) |
+| Data person    | aggiedrop (10.66.X.12), excel (10.66.X.15)     | [`per_box/aggiedrop.md`](./per_box/aggiedrop.md), [`per_box/excel.md`](./per_box/excel.md) |
+| SSH/IAM person | reveille-remote (10.66.X.14)                    | [`per_box/reveille-remote.md`](./per_box/reveille-remote.md) |
 
 Each per-box file is self-contained — T+0–5 lock-down, T+5–15 hardening, ongoing checks, and an "If compromised" section that routes to playbooks.
 

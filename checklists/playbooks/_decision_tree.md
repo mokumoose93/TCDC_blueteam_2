@@ -19,6 +19,9 @@ Answer these three questions in order:
 If scored service is DOWN → go to step 2 immediately (containment can wait 30s; scoring cannot).
 If scored service is UP → you have time. Breathe. Go to step 2.
 
+Assume initial compromise: red team may already have persistence/config changes in place at competition start.
+Treat inbound source IP as low-confidence attribution because ingress is NATed to one apparent IP.
+
 ## 2. CONTAIN
 
 Kick / lock / block — do not delete yet. Preserve evidence.
@@ -63,8 +66,8 @@ ls /root/tcdc_backups/                            # latest backup
 apache2ctl configtest && systemctl reload apache2
 nginx -t && systemctl reload nginx
 sshd -t && systemctl reload sshd
+vsftpd /etc/vsftpd.conf && systemctl restart vsftpd
 systemctl reload postgresql
-systemctl restart vsftpd
 ```
 
 If the service still won't come back, let the watchdog auto-restart catch it while you investigate. **Do not leave the service down while you dig.**

@@ -20,8 +20,8 @@ sudo sed -i \
     -e 's/^anon_mkdir_write_enable=.*/anon_mkdir_write_enable=NO/' \
     /etc/vsftpd.conf
 
-# 3. Reload (vsftpd has no configtest — restart carefully)
-sudo systemctl restart vsftpd
+# 3. Test config, then restart
+sudo vsftpd /etc/vsftpd.conf && sudo systemctl restart vsftpd
 sleep 2
 systemctl is-active vsftpd && ss -tulnp | grep ':21 '
 ```

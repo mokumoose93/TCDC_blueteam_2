@@ -1,4 +1,4 @@
-# excel (10.66.X.14) — PostgreSQL
+# excel (10.66.X.15) — PostgreSQL
 
 **Scored service:** PostgreSQL on port 5432.
 **Tick:** 30s. Every tick down = lost points.

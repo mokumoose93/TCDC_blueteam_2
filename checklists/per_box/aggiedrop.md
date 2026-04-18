@@ -1,4 +1,4 @@
-# aggiedrop (10.66.X.13) — vsftpd FTP
+# aggiedrop (10.66.X.12) — vsftpd FTP
 
 **Scored service:** FTP (vsftpd) on port 21 with passive data ports 49152–49200.
 **Tick:** 30s. Every tick down = lost points.
